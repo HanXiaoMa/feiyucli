@@ -2,11 +2,32 @@
   "name": "{{name}}",
   "version": "1.0.0",
   "description": "{{description}}",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "{{author}}",
   "license": "ISC",
+  "scripts": {
+    "start": "npm run serve",
+    "build": "webpack --env.NODE_ENV=common",
+    "demo": "webpack --env.NODE_ENV=demo",
+    "dev": "webpack --env.NODE_ENV=dev  --progress --watch",
+    "build:prod": "webpack --env.NODE_ENV=production",
+    "build:prod:web": "webpack --env.NODE_ENV=release",
+    "build:plugin": "webpack --env.NODE_ENV=plugin",
+    "clean:web": "rimraf ./release/web",
+    "clean:ios": "rimraf ./release/ios",
+    "clean:android": "rimraf ./release/android",
+    "unit": "karma start test/unit/karma.conf.js --single-run",
+    "lint": "eslint --ext .js,.vue src  test/unit --fix",
+    "serve": "webpack-dev-server --env.NODE_ENV=development --progress",
+    "ios": "weex run ios",
+    "web": "npm run serve",
+    "android": "weex run android",
+    "pack:ios": "npm run clean:ios && weex build ios",
+    "pack:android": "npm run clean:android && weex build android",
+    "pack:web": "npm run clean:web && npm run build:prod:web"
+  },
+  "keywords": [
+    "weex"
+  ],
   "dependencies": {
     "file-loader": "^2.0.0",
     "phantom-limb": "0.0.1",
