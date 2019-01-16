@@ -1,5 +1,4 @@
-// You can see all the config in `./configs`.
-const buildPlugins = require('./configs/plugin');
+//打包vue配置说明
 let webpackConfig;
 module.exports = env => {
     console.log("----测试webpack打包流程>>>");
@@ -14,9 +13,6 @@ module.exports = env => {
             console.log("----demo>>>");
             webpackConfig = require('./configs/webpack.demo.conf');
             break;
-        case 'plugin':
-            console.log("----plugin>>>");
-            buildPlugins();
         case 'common':
             console.log("----common>>>");
             webpackConfig = require('./configs/webpack.common.conf');
@@ -31,4 +27,4 @@ module.exports = env => {
             break;
     }
     return webpackConfig;
-}
+};
