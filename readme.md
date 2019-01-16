@@ -10,6 +10,8 @@
 
 #### src 是vue 文件目录
 
+#### 在package.json 里添加weex开发所需要的第三方库
+
 
 
 
