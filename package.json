@@ -15,13 +15,14 @@
     "weex"
   ],
   "dependencies": {
-    "file-loader": "^2.0.0",
+    "babel-preset-stage-3": "^6.24.1",
     "phantom-limb": "0.0.1",
-    "vue": "2.5.13",
+    "vue": "^2.5.11",
+    "weex-vue-render": "^1.0.17",
+    "file-loader": "^2.0.0",
     "vue-template-compiler": "2.5.13",
     "vue-router": "^3.0.1",
     "vux": "^2.9.2",
-    "weex-vue-render": "^1.0.31",
     "replace": "^1.0.0",
     "delete": "^1.1.0",
     "weex-builder": "^0.4.1",
