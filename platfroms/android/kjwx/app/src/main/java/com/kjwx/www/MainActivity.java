@@ -1,4 +1,4 @@
-package com.kjws.www;
+package com.kjwx.www;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
