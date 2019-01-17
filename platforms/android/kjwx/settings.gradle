@@ -1,1 +1,4 @@
 include ':app'
+
+include ':kjwx_poject'
+project (':kjwx_poject').projectDir = new File('../kjwx_poject')
