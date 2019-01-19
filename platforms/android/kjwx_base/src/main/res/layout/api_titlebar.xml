@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?><!-- 顶部标题 -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout"
+    android:layout_width="fill_parent"
+    android:layout_height="52dp"
+    android:background="#18d791"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/left_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:clickable="true"
+        android:gravity="center"
+        android:minWidth="40dp"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/leftimage"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/api_back_selector" />
+
+        <TextView
+            android:id="@+id/left_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right|center_vertical"
+            android:text="返回"
+            android:textColor="#000000"
+            android:textSize="13sp"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/title_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="@string/app_name"
+        android:textColor="#ffffff"
+        android:textSize="16sp" />
+
+
+    <LinearLayout
+        android:id="@+id/right_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:clickable="true"
+        android:gravity="center"
+
+        android:minWidth="40dp"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/right_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text=""
+            android:textColor="#ffffff"
+            android:textSize="13sp" />
+
+        <ImageView
+            android:id="@+id/right_image"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:visibility="gone"
+
+            />
+
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/bottomline"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:background="#eeeeee"
+        android:visibility="gone" />
+
+
+</RelativeLayout>

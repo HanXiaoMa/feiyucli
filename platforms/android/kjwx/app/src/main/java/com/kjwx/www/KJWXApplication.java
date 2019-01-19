@@ -1,6 +1,10 @@
 package com.kjwx.www;
 
-import android.app.Application;
 
-public class KJWXApplication extends Application {
+import www.kjwx_poject.com.app.WeexAlication;
+
+public class KJWXApplication extends WeexAlication {
+
+
+
 }
