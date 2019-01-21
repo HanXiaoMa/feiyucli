@@ -15,6 +15,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    repositories{
+        flatDir{
+            dirs 'libs' , '../../kjwx_plugin/libs'
+        }
+    }
+
 }
 
 dependencies {

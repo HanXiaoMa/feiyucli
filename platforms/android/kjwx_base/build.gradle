@@ -2,17 +2,11 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 28
-
-
-
     defaultConfig {
         minSdkVersion 15
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
     }
 
     buildTypes {
@@ -29,8 +23,5 @@ dependencies {
     api 'com.feiyu.feiyulibrary:feiyu-lib:1.5.2'
     api 'org.simple:androideventbus:1.0.5.1'
     api 'com.taobao.android:weex_sdk:0.17.0@aar'
-    implementation 'com.android.support:appcompat-v7:28.0.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-}
+    api 'com.android.support:appcompat-v7:28.0.0'
+ }

@@ -7,12 +7,6 @@ include ':kjwx_base'
 project (':kjwx_base').projectDir = new File('../kjwx_base')
 
 
+include ':kjwx_plugin'
+project (':kjwx_plugin').projectDir = new File('../kjwx_plugin')
 
-
-
-
-//include ':demo_plugin'
-//project (':demo_plugin').projectDir = new File('../plugin_project/demo_plugin')
-//
-//include ':demo_to'
-//project (':demo_to').projectDir = new File('../plugin_project/demo_to')

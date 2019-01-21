@@ -2,9 +2,10 @@ package www.kjwx_poject.com.config;
 
 import android.app.Application;
 
+import com.kjwx_plugin.PluginManager;
 import com.taobao.weex.WXSDKEngine;
+import com.taobao.weex.common.WXException;
 
-import www.kjwx_plugin.manager.PluginManager;
 
 /**
  * weex 帮助
@@ -23,10 +24,14 @@ public class WeexHelper {
     public void init(Application application, String name, String groupname, String basedir) {
         WXSDKEngine.addCustomOptions("appName", name);
         WXSDKEngine.addCustomOptions("appGroup", groupname);
-
-
         //注册插件
-        PluginManager.init(application);
+        try {
+            PluginManager.registerModule(application);
+            PluginManager.registerComponent(application);
+        } catch (WXException e) {
+            e.printStackTrace();
+        }
+
     }
 
 
