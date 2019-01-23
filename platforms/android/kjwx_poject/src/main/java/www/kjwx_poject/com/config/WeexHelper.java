@@ -11,6 +11,7 @@ import com.taobao.weex.common.WXException;
 
 import www.kjwx_poject.com.activity.WeexActivity;
 import www.kjwx_poject.com.adapter.ImageAdapter;
+import www.kjwx_poject.com.module.WXNavgationModule;
 import www.kjwx_poject.com.util.Local;
 
 
@@ -31,14 +32,14 @@ public class WeexHelper {
     public void init(Application application, String name, String groupname, String dir) {
         basedir = dir;
 
+        InitConfig config = new InitConfig.Builder().setImgAdapter(new ImageAdapter()).build();
+        WXSDKEngine.initialize(application, config);
+
         WXSDKEngine.addCustomOptions("appName", name);
         WXSDKEngine.addCustomOptions("appGroup", groupname);
-
-
-
-
         //注册插件
         try {
+            WXSDKEngine.registerModule("navigator", WXNavgationModule.class);
             PluginManager.registerModule(application);
             PluginManager.registerComponent(application);
         } catch (WXException e) {

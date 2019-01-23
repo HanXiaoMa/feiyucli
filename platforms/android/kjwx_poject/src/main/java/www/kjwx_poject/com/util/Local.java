@@ -3,6 +3,8 @@ package www.kjwx_poject.com.util;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.feiyu.library.util.KLoger;
+
 import java.io.File;
 import java.io.InputStream;
 
@@ -81,10 +83,10 @@ public class Local {
             if (!FileTool.IsFileExist(newPath)) {  //不存在文件夹 进行创建
                 FileTool.makeDir(newPath);
             }
+            KLoger.e("即将拷贝操作>>>拷贝的新地址是 "+newPath);
             FileTool.copyAssets(ctx, "app", newPath);
         }
-        //磁盘存在配置文件 就去对比 版本
-        if (isDiskExist(ctx)) {
+        if (isDiskExist(ctx)) { //版本大的时候也去拷贝
             SharedPreferences sharedPreferences = ctx.getSharedPreferences("farwolf_weex", Context.MODE_PRIVATE); //私有数据
             int version = sharedPreferences.getInt("downloadJsVersion", -1);
             if (version > AppConfig.diskJsVersion(ctx)) { //进行对比磁盘缓存的版本和 sp 的版本 , sp 大于 磁盘缓存的 说明有新版本weex

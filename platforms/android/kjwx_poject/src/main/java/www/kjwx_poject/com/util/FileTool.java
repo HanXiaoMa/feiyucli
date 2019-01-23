@@ -69,8 +69,8 @@ public class FileTool {
             String fileNames[] = context.getAssets().list(oldPath);// 获取assets目录下的所有文件及目录名
             if (fileNames.length > 0) {// 如果是目录
                 File file = new File(newPath);
-                file.mkdirs();// 如果文件夹不存在，则递归
-                for (String fileName : fileNames) {
+                file.mkdirs();// 如果文件夹不存在则创建
+                for (String fileName : fileNames) { //递归拷贝
                     copyAssets(context, oldPath + "/" + fileName, newPath + "/" + fileName);
                 }
             } else {// 如果是文件

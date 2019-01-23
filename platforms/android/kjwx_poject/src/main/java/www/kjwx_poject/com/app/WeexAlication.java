@@ -23,8 +23,7 @@ abstract  public class WeexAlication extends BaseApplication {
         Local.copyAssetToDisk(this);
         String schema = AppConfig.schema(this);
 
-        InitConfig config = new InitConfig.Builder().setImgAdapter(new ImageAdapter()).build();
-        WXSDKEngine.initialize(this, config);
+
 
         //2、初始化weex
         weexHelper = WeexHelper.getInstance();

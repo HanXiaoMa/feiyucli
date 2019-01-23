@@ -23,8 +23,8 @@ public class SplashActivity extends WeexActivity {
         WeexFactory.getInstance().preRender(this,indexUrl, new WeexFactory.OnRenderFinishListener() {
             @Override
             public void onRenderFinish(WeexPage p) {
-                KLoger.e("---onRenderFinish>>> " +p);
-
+                p.instance.fireGlobalEventCallback("onPageInit", null);
+                p.instance.onActivityCreate();
             }
             @Override
             public void onRenderFailed(WeexPage p) {
