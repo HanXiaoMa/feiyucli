@@ -10,7 +10,7 @@ const config = require('./config');
 const weexConfig = webpackMerge(commonConfig[0], {
     output: {
         path: path.join(__dirname, '../dist-demo'),  //输出到demo 文件夹
-        filename: '[name].weex'
+        filename: '[name].js'
         //修改成weex 后  文件不压缩  --- 需要在哪里进行配置
     },
     // 引入的插件  --   可进行注入特定的环境变量等

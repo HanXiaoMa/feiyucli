@@ -1,8 +1,8 @@
 {
-  "name": "{{name}}",
+  "name": "cli",
   "version": "1.0.0",
-  "description": "{{description}}",
-  "author": "{{author}}",
+  "description": "cli测试",
+  "author": "测试",
   "license": "ISC",
   "scripts": {
     "start": "npm run serve",
