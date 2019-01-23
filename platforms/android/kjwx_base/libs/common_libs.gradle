@@ -1,0 +1,11 @@
+dependencies {
+//    第三方库
+    api 'com.feiyu.feiyulibrary:feiyu-lib:1.5.2'
+    api 'com.alibaba:fastjson:1.2.40'
+    api 'org.simple:androideventbus:1.0.5.1'
+    //65536问题
+    api 'com.android.support:multidex:1.0.2'
+    api 'com.android.support:recyclerview-v7:+'
+    api 'com.taobao.android:weex_sdk:0.17.0@aar'
+
+}

@@ -93,12 +93,32 @@ public class AppConfig {
      * @return
      */
     public static String schema(Context ctx) {
-        try{
+        try {
             return config(ctx).optString("schema");
-        }catch (Exception e){
+        } catch (Exception e) {
             return "";
         }
 
     }
 
+
+    /**
+     * 读取要合并的js
+     *
+     * @param c
+     * @return
+     */
+    public static String appBoard(Context c) {
+        return config(c).optString("appBoard");
+    }
+
+    /**
+     * 获取首屏记载js
+     *
+     * @param c
+     * @return
+     */
+    public static String entry(Context c) {
+        return config(c).optString("releaseEntry");
+    }
 }

@@ -1,5 +1,9 @@
 package www.kjwx_poject.com.app;
+import com.taobao.weex.InitConfig;
+import com.taobao.weex.WXSDKEngine;
+
 import www.kjwx_base.com.base.BaseApplication;
+import www.kjwx_poject.com.adapter.ImageAdapter;
 import www.kjwx_poject.com.config.AppConfig;
 import www.kjwx_poject.com.config.WeexHelper;
 import www.kjwx_poject.com.util.Local;
@@ -18,6 +22,10 @@ abstract  public class WeexAlication extends BaseApplication {
         //1、拷贝到磁盘
         Local.copyAssetToDisk(this);
         String schema = AppConfig.schema(this);
+
+        InitConfig config = new InitConfig.Builder().setImgAdapter(new ImageAdapter()).build();
+        WXSDKEngine.initialize(this, config);
+
         //2、初始化weex
         weexHelper = WeexHelper.getInstance();
         weexHelper.init(this, "weex", "weex_kj", schema);

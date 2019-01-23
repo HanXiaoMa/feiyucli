@@ -1,4 +1,4 @@
-package www.kjwx_poject.com.util.local;
+package www.kjwx_poject.com.core.local;
 
 import android.content.Context;
 import android.graphics.Bitmap;

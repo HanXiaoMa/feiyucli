@@ -1,5 +1,6 @@
 package www.kjwx_base.com.base;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -12,10 +13,12 @@ import android.widget.Toast;
 import www.kjwx_base.com.util.AppTool;
 
 abstract public class BaseActivity extends AppCompatActivity {
+    protected Intent intent;
 
     @Override
     protected void onCreate(Bundle arg0) {
         super.onCreate(arg0);
+        intent = this.getIntent();
         setContentView(getViewId());
         if (AppTool.OSVersion() >= 19) {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
@@ -26,12 +29,12 @@ abstract public class BaseActivity extends AppCompatActivity {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             getWindow().setStatusBarColor(Color.TRANSPARENT);
         }
+        initView();
     }
 
     public abstract int getViewId();
 
-
-    public abstract void init();
+    public abstract void initView();
 
     public void replace(int id, Fragment fragment) {
         getSupportFragmentManager().beginTransaction().replace(id, fragment).commitAllowingStateLoss();

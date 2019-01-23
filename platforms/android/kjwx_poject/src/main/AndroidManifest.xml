@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="www.kjwx_poject.com">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="www.kjwx_poject.com">
 
+    <application>
+        <activity
+            android:name="www.kjwx_poject.com.activity.PresentActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="www.kjwx_poject.com.activity.LanscapeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="www.kjwx_poject.com.activity.WeexActivity"
+            android:screenOrientation="portrait" />
+    </application>
 
 </manifest>

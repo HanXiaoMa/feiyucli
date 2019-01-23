@@ -7,9 +7,9 @@ import java.io.File;
 import java.io.InputStream;
 
 import www.kjwx_poject.com.config.AppConfig;
-import www.kjwx_poject.com.util.local.Asset;
-import www.kjwx_poject.com.util.local.Disk;
-import www.kjwx_poject.com.util.local.ILocal;
+import www.kjwx_poject.com.core.local.Asset;
+import www.kjwx_poject.com.core.local.Disk;
+import www.kjwx_poject.com.core.local.ILocal;
 
 /**
  * 关于存储的公共类
