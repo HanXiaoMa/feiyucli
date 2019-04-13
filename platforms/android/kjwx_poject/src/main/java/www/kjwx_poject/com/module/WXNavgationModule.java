@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Intent;
 
+import com.feiyu.library.util.KLoger;
 import com.taobao.weex.annotation.JSMethod;
 import com.taobao.weex.bridge.JSCallback;
 import com.alibaba.fastjson.JSONObject;
@@ -174,6 +175,7 @@ public class WXNavgationModule extends BaseModule {
     public void presentFull(HashMap parameters, JSCallback callback) {
 
         String url = parameters.get("url") + "";
+        KLoger.e("---开始跳转拉->>>" +url);
         JSONObject param = (JSONObject) parameters.get("param");
         boolean isPortrait = true;
         if (parameters.containsKey("isPortrait"))
@@ -183,6 +185,8 @@ public class WXNavgationModule extends BaseModule {
 
 
     private void goNext(String url, JSONObject param, JSCallback callback, Class c, boolean isroot, boolean isPortrait) {
+
+
         WeexFactory weexFactory = WeexFactory.getInstance();
         if (!isPortrait) {
             c = LanscapeActivity.class;

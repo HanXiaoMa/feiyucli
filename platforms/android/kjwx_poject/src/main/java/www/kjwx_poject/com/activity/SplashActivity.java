@@ -1,5 +1,7 @@
 package www.kjwx_poject.com.activity;
 
+import android.util.Log;
+
 import com.feiyu.library.util.KLoger;
 
 import www.kjwx_poject.com.R;
@@ -17,15 +19,42 @@ public class SplashActivity extends WeexActivity {
     @Override
     public void initView() { //不调用父类
 
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(300);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                Log.i("weex", "reload");
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        prepareWeex();
+
+
+                    }
+
+                });
+            }
+        }).start();
+    }
+
+    private void prepareWeex() {
+
         // TOD 2019/1/22  进入预加载第一屏weex逻辑
         String indexUrl = url = AppConfig.entry(this);
 //        //预加载weex
-        WeexFactory.getInstance().preRender(this,indexUrl, new WeexFactory.OnRenderFinishListener() {
+        WeexFactory.getInstance().preRender(this, indexUrl, new WeexFactory.OnRenderFinishListener() {
             @Override
             public void onRenderFinish(WeexPage p) {
+                KLoger.e("---加载成功开始通知>>> " + p);
                 p.instance.fireGlobalEventCallback("onPageInit", null);
                 p.instance.onActivityCreate();
             }
+
             @Override
             public void onRenderFailed(WeexPage p) {
                 KLoger.e("---onRenderFailed>>> " + p);
@@ -33,7 +62,6 @@ public class SplashActivity extends WeexActivity {
         });
 
         KLoger.e("---首屏url地址是>>> " + indexUrl);
-
 
     }
 

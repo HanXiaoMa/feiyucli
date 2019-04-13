@@ -32,7 +32,10 @@ public class WeexFactory {
     }
 
     public void jump(final Activity activity, String url, final Intent in, final boolean forResult) {
+        KLoger.e("---跳转页面处理，包含预加载处理->>>");
         if (hasCache(url)) {
+
+            KLoger.e("---存在缓存直接跳转->>>");
             in.putExtra("url", url);
             if (!forResult) {
                 activity.startActivity(in);
@@ -48,11 +51,14 @@ public class WeexFactory {
         in.putExtra("url", url);
         final boolean ispotrait = in.getBooleanExtra("isPortrait", true);
         addCache(url, page);
+
+        KLoger.e("---跳转页面处理，开始预加载->>>");
         page.id = pageid;
 //        page.instance.param=(JSONObject)in.getSerializableExtra("param");
         page.instance.registerRenderListener(new IWXRenderListener() {
             @Override
             public void onViewCreated(WXSDKInstance instance, final View view) {
+                KLoger.e("---预加载成功跳转->>>");
                 page.v = view;
 //                page.instance.hasInit = true;
 
@@ -67,25 +73,22 @@ public class WeexFactory {
                     activity.startActivityForResult(in, 10001);
                 }
             }
-
             @Override
             public void onRenderSuccess(WXSDKInstance instance, int width, int height) {
 //                ((WeexActivity)context).mask.removeAllViews();
 
-
             }
-
             @Override
             public void onRefreshSuccess(WXSDKInstance instance, int width, int height) {
 
             }
-
             @Override
             public void onException(WXSDKInstance instance, String errCode, String msg) {
-
-                Log.i(errCode, msg);
+                KLoger.e(errCode+" ----加载失败了原因是>>> " +msg);
             }
         });
+
+        render(activity,page.instance, url);
 
     }
 
@@ -144,7 +147,8 @@ public class WeexFactory {
 
             @Override
             public void onException(WXSDKInstance instance, String errCode, String msg) {
-                KLoger.e("----加载失败了原因是>>> " +msg);
+                KLoger.e(errCode+" ----加载失败了原因是>>> " +msg);
+
                 if (listener != null) {
                     listener.onRenderFailed(p);
                 }
@@ -160,7 +164,7 @@ public class WeexFactory {
         if (url.startsWith("http")) {
             instance.renderByUrl("farwolf", url, null, null, WXRenderStrategy.APPEND_ASYNC);
         } else {
-            KLoger.e("---要加载weex代码是>>>" +WeexHelper.loadLocal(url, context));
+//            KLoger.e("---要加载weex代码是>>>" +WeexHelper.loadLocal(url, context));
             instance.render("farwolf", WeexHelper.loadLocal(url, context), null, null, WXRenderStrategy.APPEND_ASYNC);
         }
     }

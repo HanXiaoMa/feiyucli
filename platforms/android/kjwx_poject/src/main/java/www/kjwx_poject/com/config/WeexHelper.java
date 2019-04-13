@@ -105,6 +105,11 @@ public class WeexHelper {
         return appboard + s;
     }
 
+    /**
+     * 读取要配置文件要合并的 js代码
+     * @param c
+     * @return
+     */
     public static String loadAppboard(Context c) {
         String path = AppConfig.appBoard(c);
         path = getLocalRootPath(path);

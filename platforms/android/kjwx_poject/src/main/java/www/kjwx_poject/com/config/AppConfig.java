@@ -113,7 +113,7 @@ public class AppConfig {
     }
 
     /**
-     * 获取首屏记载js
+     * 获取首屏加载的js
      *
      * @param c
      * @return
