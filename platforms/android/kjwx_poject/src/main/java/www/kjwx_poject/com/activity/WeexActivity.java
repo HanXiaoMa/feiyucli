@@ -194,7 +194,6 @@ public class WeexActivity extends BaseTitleActivity implements IWXRenderListener
     }
 
     private void makeHidden() {
-//        getTitleBar().setVisibility(View.GONE);
         RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
         lp.setMargins(0, 0, 0, 0);
         mRootContainer.setLayoutParams(lp);
@@ -214,8 +213,6 @@ public class WeexActivity extends BaseTitleActivity implements IWXRenderListener
         view.setLayoutParams(lp);
         mContainer.addView(view);
         mContainer.requestLayout();
-//        mWXSDKInstance.hasInit = true;
-//        mWXSDKInstance.firePageInit();
         mWXSDKInstance.onActivityCreate();
         this.invokeRenderListener();
         this.isPageInit = true;
@@ -236,21 +233,7 @@ public class WeexActivity extends BaseTitleActivity implements IWXRenderListener
     public void onException(WXSDKInstance instance, String errCode, String msg) {
         hideLoading();
     }
-//
-//    @Override
-//    protected void onCreate(Bundle arg0) {
-//        if (arg0 != null) {
-//            String url = arg0.getString("url");
-//            if (url != null) {
-//                this.url = url;
-//            }
-//            HashMap m = (HashMap) arg0.getSerializable("static");
-//            if (m != null) {
-//                KLoger.e("---static变量--->>>>>");
-//            }
-//        }
-//        super.onCreate(arg0);
-//    }
+
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {

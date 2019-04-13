@@ -3,6 +3,7 @@ package www.kjwx_poject.com.config;
 import android.app.Application;
 import android.content.Context;
 
+import com.feiyu.library.util.KLoger;
 import com.kjwx_plugin.PluginManager;
 import com.taobao.weex.InitConfig;
 import com.taobao.weex.WXSDKEngine;
@@ -80,9 +81,11 @@ public class WeexHelper {
     }
 
     public static String getBaseUrl(String url) {
+
         String baseurl = "";
         String s = url;
         if (s.startsWith("http")) {
+            KLoger.e("===============加载的url=>>>>========"+url);
             String x[] = url.split("\\/");
             if (x.length > 3) {
                 String res = x[0] + "//" + x[2] + "/" + WeexHelper.basedir;
@@ -94,6 +97,7 @@ public class WeexHelper {
             baseurl = "app/";
 
         }
+        KLoger.e("===============baseurl=>>>>========"+baseurl);
         return baseurl;
     }
 

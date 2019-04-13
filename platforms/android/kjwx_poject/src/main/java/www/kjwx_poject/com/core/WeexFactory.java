@@ -32,7 +32,7 @@ public class WeexFactory {
     }
 
     public void jump(final Activity activity, String url, final Intent in, final boolean forResult) {
-        KLoger.e("---跳转页面处理，包含预加载处理->>>");
+        KLoger.e("---跳转页面处理，包含预加载处理->>>"+url);
         if (hasCache(url)) {
 
             KLoger.e("---存在缓存直接跳转->>>");

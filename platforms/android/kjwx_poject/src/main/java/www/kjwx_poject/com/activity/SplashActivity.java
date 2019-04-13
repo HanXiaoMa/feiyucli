@@ -24,7 +24,7 @@ public class SplashActivity extends WeexActivity {
             @Override
             public void run() {
                 try {
-                    Thread.sleep(300);
+                    Thread.sleep(500);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -46,6 +46,7 @@ public class SplashActivity extends WeexActivity {
 
         // TOD 2019/1/22  进入预加载第一屏weex逻辑
         String indexUrl = url = AppConfig.entry(this);
+        KLoger.e("---indexUrl>>> " + indexUrl);
 //        //预加载weex
         WeexFactory.getInstance().preRender(this, indexUrl, new WeexFactory.OnRenderFinishListener() {
             @Override

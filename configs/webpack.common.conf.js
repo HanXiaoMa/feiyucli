@@ -63,7 +63,7 @@ const weexConfig = {
   //输出位置
   output: {
     path: path.join(__dirname, '../dist'),
-    filename: '[name].weex'
+    filename: '[name].js'
       //修改成weex 后  文件不压缩  --- 需要在哪里进行配置
   },
   resolve: {

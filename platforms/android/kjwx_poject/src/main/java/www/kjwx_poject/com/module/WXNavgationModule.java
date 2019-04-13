@@ -204,15 +204,21 @@ public class WXNavgationModule extends BaseModule {
         }
         //进行url处理，得到 相对 路径 url
         url = WeexHelper.getInstance().getRelativeUrl(url, this.mWXSDKInstance);
+        KLoger.e("---进行处理后的->>>" +url);
+
         in.putExtra("url", url);
         if (callback != null && (this.mWXSDKInstance.getContext() instanceof WeexActivity)) {
             WeexActivity ac = (WeexActivity) this.mWXSDKInstance.getContext();
             String id = ac.getViewId() + "";
             callbacks.put(id, callback);
             in.putExtra("callbackid", id);
+
+
             weexFactory.jump(getActivity(), url, in, true);
             return;
         }
+
+
         weexFactory.jump(getActivity(), url, in, callback != null);
     }
 

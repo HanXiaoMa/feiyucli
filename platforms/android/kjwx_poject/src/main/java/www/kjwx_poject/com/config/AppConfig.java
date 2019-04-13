@@ -119,6 +119,17 @@ public class AppConfig {
      * @return
      */
     public static String entry(Context c) {
+
+        if(config(c).optBoolean("debug")){
+            return config(c).optString("debugEntry");
+        }
         return config(c).optString("releaseEntry");
     }
+
+
+
+
+
+
+
 }
